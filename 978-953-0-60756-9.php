@@ -1,11 +1,15 @@
 <?php
-    if($page == "978-953-0-60756-9" && isset($_SESSION["email"]) && isset($_GET["action"]) && $_GET["action"] == "rezerviraj"){
-        $datum_rezervacije = $_POST["datum"];
-        $id = $_SESSION["email"];
-        $id_knjiga = $_POST["id_knjiga"];
-        $sql = "INSERT INTO posudbe (email, id_knjiga, datum_rezervacije) VALUES (?,?,?)";
-        $statement = $pdo->prepare($sql);
-        $statement->execute(["$id","$id_knjiga","$datum_rezervacije"]);
+    if($page == "978-953-0-60756-9" && isset($_SESSION["email"])){
+        if(isset($_POST["rezerviraj"])){
+            $pdo = require_once("connect.php");
+            $datum_rezervacije = $_POST["datum"];
+            $id = $_SESSION["email"];
+            $id_knjiga = "1";
+            $sql = "INSERT INTO posudbe (email, id_knjiga, datum_rezervacije, timestamp) VALUES (?,?,?,NOW())";
+            $statement = $pdo->prepare($sql);
+            $statement->execute(["$id","$id_knjiga","$datum_rezervacije"]);
+            die(header("Location:index.php?page=rezervirano"));
+        }
     }
 ?>
 
@@ -35,7 +39,7 @@
                             <div class="text">
                                 <h1>Naziv:</h1> '. $artikl["ime"] .' <br>
                                 <h2>Autor:</h2> '. $artikl["autor"] .' <br><br>
-                                <form method="post" action="/978-953-0-60756-9?action=rezerviraj">
+                                <form method="post">
                                     <input name="datum" type="date"> <br><br>
                                     <input name="rezerviraj" type="submit" value="Rezerviraj">
                                 </form>

@@ -78,6 +78,8 @@
           require_once("978-953358526-0.php");
         }else if($page =="9789534923108") {
           require_once("9789534923108.php");
+        }else if($page =="rezervirano") {
+          require_once("rezervirano.php");
         }
         ?>
    
