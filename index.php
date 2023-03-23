@@ -8,23 +8,23 @@
   }*/
 
 
-  if($_SERVER["REQUEST_METHOD"]=="POST" && $_GET["page"] == "prijava"){
-        $pdo=require_once("connect.php");
-        if(isset($_POST["submit-login"])){
-            $email=$_POST["email-login"];
-            $pass=$_POST["lozinka-login"];
-            $sql="SELECT * FROM korisnici";
-            $statement=$pdo->query($sql);
-            $result=$statement->fetchAll();
-            if($result){
-                foreach($result as $row){
-                if($email==$row["email"] && $pass==$row["lozinka"]){
-                    $_SESSION["email"]=$row["email"];
-                }
-            }
-        }
-    }
+if($_SERVER["REQUEST_METHOD"]=="POST" && $_GET["page"] == "prijava"){
+      $pdo=require_once("connect.php");
+      if(isset($_POST["submit-login"])){
+          $email=$_POST["email-login"];
+          $pass=$_POST["lozinka-login"];
+          $sql="SELECT * FROM korisnici";
+          $statement=$pdo->query($sql);
+          $result=$statement->fetchAll();
+          if($result){
+              foreach($result as $row){
+              if($email==$row["email"] && $pass==$row["lozinka"]){
+                  $_SESSION["email"]=$row["email"];
+              }
+          }
+      }
   }
+}
 
 /*if(isset($_POST["change"])) {
   $username = $_POST["username_ch"];
