@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header>
-    </header>
         <main>
             <?php
                 $pdo = require_once("connect.php");

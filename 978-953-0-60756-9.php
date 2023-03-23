@@ -15,8 +15,6 @@
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
-    <header>
-    </header>
         <main>
             <?php
                 $pdo = require_once("connect.php");
@@ -39,11 +37,12 @@
                                 <h2>Autor:</h2> '. $artikl["autor"] .' <br><br>
                                 <form method="post" action="/978-953-0-60756-9?action=rezerviraj">
                                     <input name="datum" type="date"> <br><br>
-                                    <input type="submit" value="Rezerviraj">
+                                    <input name="rezerviraj" type="submit" value="Rezerviraj">
                                 </form>
+                                <br>
                             </div>
                           </div>
-                            
+                            <br><a class="button" href="https://www.hrlektire.com/wp-content/uploads/2018/09/aralica_duse_robova.pdf">Digitalno izdanje</a><br><br>
                             <span class="tekstoknjizi"><b>Izdavač:</b> '. $artikl["izdavac"] .'</span> <br>
                             <span class="tekstoknjizi"><b>Godina:</b> '. $artikl["godina"] .'</span> <br>
                             <span class="tekstoknjizi"><b>Broj stranica:</b> '. $artikl["broj_stranica"] .'</span> <br>
@@ -79,6 +78,18 @@
         }
         .text{
             padding-left: 20px;
+        }
+        .button{
+            width: 115px;
+            height: 25px;
+            background: #4E9CAF;
+            padding: 10px;
+            text-align: center;
+            border-radius: 5px;
+            color: white;
+            font-weight: bold;
+            line-height: 25px;
+            text-decoration: none;
         }
     </style>
     <footer><?php require_once("footer.php")?></footer>
