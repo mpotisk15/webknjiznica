@@ -5,7 +5,7 @@
   
   <div class="navi">
     <div class="linkovi">
-      <a href="index.php?page=pocetna">Pocetna</a>
+      <a href="index.php?page=pocetna">Početna</a>
 
       <?php 
 
