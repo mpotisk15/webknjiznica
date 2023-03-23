@@ -1,25 +1,32 @@
 <?php
   session_start();
-  
+
+/*  if($_GET["page"] == "knjige") {
+    if(!isset($_SESSION["email"]) || $_SESSION["email"] != "admin") {
+        die(header("Location: index.php?page=ne_knjige"));
+    }
+  }*/
+
+
   if($_SERVER["REQUEST_METHOD"]=="POST" && $_GET["page"] == "prijava"){
         $pdo=require_once("connect.php");
         if(isset($_POST["submit-login"])){
-            $username=$_POST["username-login"];
-            $pass=$_POST["password-login"];
-            $sql="SELECT * FROM users";
+            $email=$_POST["email-login"];
+            $pass=$_POST["lozinka-login"];
+            $sql="SELECT * FROM korisnici";
             $statement=$pdo->query($sql);
             $result=$statement->fetchAll();
             if($result){
                 foreach($result as $row){
-                if($username==$row["username"] && password_verify($pass, $row["password"])){
-                    $_SESSION["username"]=$row["username"];
+                if($email==$row["email"] && $pass==$row["lozinka"]){
+                    $_SESSION["email"]=$row["email"];
                 }
             }
         }
     }
   }
 
-if(isset($_POST["change"])) {
+/*if(isset($_POST["change"])) {
   $username = $_POST["username_ch"];
   $password = $_POST["password_ch"];
   $email = $_POST["email_ch"];
@@ -32,12 +39,12 @@ if(isset($_POST["change"])) {
   $statement -> execute(["$username", "$password", "$email", "$name", "$surname", "$address", "$u"]);
 
   $_SESSION["username"] = $username;
-}
+}*/
 ?>
 
 <html>
   <head>
-    <title>Edijev Podrum</title>
+    <title>Web Knjižnica</title>
     <link rel="stylesheet" href="style.css">
   </head>
   <body>
@@ -49,30 +56,20 @@ if(isset($_POST["change"])) {
         $page=$_GET['page'];
         if($page=="pocetna" || !isset($page)){
           require_once("pocetna.html");
-        }
-        else if($page=="kontakt"){
-          require_once("kontakt.php");
-        }else if($page == "ne_kontakt") {
-          require_once("ne_kontakt.html");
-        }
-        else if($page=="onama"){
-          require_once("onama.html"); 
         }else if($page=="prijava"){
           require_once("prijava.php");
         }else if($page=="uspjesna"){
           require_once("uspjesna.html");
-        } else if($page=="neuspjesna") {
+        }else if($page=="neuspjesna") {
           require_once("neuspjesna.html");
-        }else if($page=="kosarica") {
-          require_once("kosarica.php");
-        }else if($page=="ducan") {
-          require_once("ducan.php");
-        } else if($page =="odjava") {
+        }else if($page =="odjava") {
           require_once("odjava.php");
-        }else if($page =="registracija") {
-          require_once("registracija.php");
-        }else if($page =="promjenapod") {
-          require_once("promjenapod.php");
+        }else if($page =="knjige") {
+          require_once("knjige.php");
+        }else if($page =="viseoknjizi") {
+          require_once("viseoknjizi.php");
+        }else if($page =="978-953-0-61222-8") {
+          require_once("978-953-0-61222-8.php");
         }
         ?>
    

@@ -6,11 +6,10 @@
   <div class="navi">
     <div class="linkovi">
       <a href="index.php?page=pocetna">Pocetna</a>
-      <a href="index.php?page=registracija">Registracija</a>
 
       <?php 
 
-        if(!isset($_SESSION["username"])) {
+        if(!isset($_SESSION["email"])) {
           echo '<a href="index.php?page=prijava">Prijava</a>';
         } else {
           echo '<a href="index.php?page=odjava">Odjava</a>';
@@ -22,7 +21,7 @@
   </div>
   
   <div class="gumbi">
-   <a href="index.php?page=kosarica"> <button class="shop-btn"><a style="text-decoration:none; color:white;" href="index.php?page=ducan">Knjige</a></button> </a> 
+    <button class="shop-btn"><a style="text-decoration:none; color:white;" href="index.php?page=knjige">Knjige</a></button> </a> 
   </div>
 </div>
 

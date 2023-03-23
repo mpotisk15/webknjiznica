@@ -1,9 +1,9 @@
 <?php
-    $host = "db4free.net";
+    $host = "localhost";
     $port = "3306";
-    $dbname = "mywebshop1986";
-    $user = "matejpotisk420";
-    $password = "Lopta13M$";
+    $dbname = "db_webknjiznica";
+    $user = "root";
+    $password = "";
 
     function connect($host, $port, $dbname, $user, $password)
     {

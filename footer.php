@@ -1,4 +1,4 @@
-<div class="footer-h"><div><b>&copy 2022 Matej Potisk</b> </div>
+<div class="footer-h"><div><b>&copy 2023 | Matej Potisk & Tin Marković</b> </div>
   
 </div>
 
