@@ -70,6 +70,14 @@
           require_once("viseoknjizi.php");
         }else if($page =="978-953-0-61222-8") {
           require_once("978-953-0-61222-8.php");
+        }else if($page =="978-953-0-60756-9") {
+          require_once("978-953-0-60756-9.php");
+        }else if($page =="978-953358018-0") {
+          require_once("978-953358018-0.php");
+        }else if($page =="978-953358526-0") {
+          require_once("978-953358526-0.php");
+        }else if($page =="9789534923108") {
+          require_once("9789534923108.php");
         }
         ?>
    
